@@ -1,0 +1,22 @@
+{
+  "name": "saucedemoautomation",
+  "version": "1.0.0",
+  "description": "SauceDemo automation using Playwright.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bagyeman/SauceDemoAutomation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bagyeman/SauceDemoAutomation/issues"
+  },
+  "homepage": "https://github.com/bagyeman/SauceDemoAutomation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.13"
+  }
+}
