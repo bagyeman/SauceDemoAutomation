@@ -20,7 +20,7 @@ test('Succesful Login', async({ page }) => {
     
 })
 
-test('Wrong username', async({ page }) => {
+test.only('Wrong username', async({ page }) => {
     /*
     const userName = 'standard_user';
     await page.goto('https://www.saucedemo.com/');
@@ -33,7 +33,7 @@ test('Wrong username', async({ page }) => {
     */
 
     await page.goto('https://www.saucedemo.com/');
-    //await page.pause();
+    await page.pause();
     //Enter wrong username
     await page.getByPlaceholder('Username').fill('Users');
     //Enter valid username
@@ -42,7 +42,7 @@ test('Wrong username', async({ page }) => {
     await page.locator('[data-test="login-button"]').click();
     //Check error message popup
     await expect(page.locator('[data-test="error"]')).toBeVisible();
-    await page.pause();
+    //await page.pause();
     //Check the exact error message displayed
     await expect(page.locator('[data-test="error"]').filter({ hasText: /^Epic sadface: Username and password do not match any user in this service$/ })).toBeVisible();
     //locator('div').filter({ hasText: /^Epic sadface: Username is required$/ })
@@ -63,5 +63,17 @@ test('wrong password', async( { page }) => {
     await expect(page.locator('[data-test="error"]')).toBeVisible();
     //Check for the exact message displayed
     await expect(page.locator('[data-test="error"]').filter({hasText: /^Epic sadface: Username and password do not match any user in this service$/})).toBeVisible();
+    await page.pause();
+})
+
+test('click only login button', async( { page }) => {
+    await page.goto('https://www.saucedemo.com/');
+    await page.pause();
+
+    //Click on the login button
+    await page.locator('[data-test="login-button"]').click();
+    await expect(page.locator('[data-test="error"]')).toBeVisible();
+    await expect(page.locator('[data-test="error"]')).toHaveText(/^Epic sadface: Username is required$/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/')
     await page.pause();
 })
