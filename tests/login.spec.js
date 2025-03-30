@@ -20,7 +20,7 @@ test('Succesful Login', async({ page }) => {
     
 })
 
-test.only('Wrong username', async({ page }) => {
+test('Wrong username', async({ page }) => {
     /*
     const userName = 'standard_user';
     await page.goto('https://www.saucedemo.com/');
